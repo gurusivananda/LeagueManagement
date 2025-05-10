@@ -1,0 +1,126 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f6f8fa;
+  }
+  
+  .header {
+    background-color: #2563eb;
+    color: white;
+    padding: 1em 2em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .header nav a {
+    color: white;
+    margin-left: 1em;
+    text-decoration: none;
+  }
+  
+  .hero {
+    background-color: #2563eb;
+    color: white;
+    text-align: center;
+    padding: 3em 1em;
+  }
+  
+  .hero-buttons button {
+    margin: 1em;
+    padding: 0.6em 1.2em;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button.secondary {
+    background-color: white;
+    color: #2563eb;
+    border: 1px solid #2563eb;
+  }
+  
+  button {
+    background-color: #1e40af;
+    color: white;
+  }
+  
+  .features {
+    text-align: center;
+    padding: 2em;
+  }
+  
+  .feature-cards {
+    display: flex;
+    justify-content: center;
+    gap: 1.5em;
+    margin-top: 1em;
+    flex-wrap: wrap;
+  }
+  
+  .card {
+    background: white;
+    padding: 1.5em;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    width: 250px;
+  }
+  
+  .card a {
+    text-decoration: none;
+    color: #2563eb;
+    display: inline-block;
+    margin-top: 0.5em;
+  }
+  
+  .matches {
+    padding: 2em;
+    text-align: center;
+  }
+  
+  .match-list {
+    display: flex;
+    justify-content: center;
+    gap: 1.5em;
+    flex-wrap: wrap;
+    margin-top: 1em;
+  }
+  
+  .match-card {
+    background: white;
+    padding: 1em;
+    border-radius: 10px;
+    width: 250px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    position: relative;
+  }
+  
+  .status {
+    background-color: #d1fae5;
+    color: #065f46;
+    padding: 0.3em 0.6em;
+    border-radius: 4px;
+    font-size: 0.8em;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+  
+  .view-all {
+    margin-top: 1em;
+  }
+  
+  .footer {
+    text-align: center;
+    background-color: #1e293b;
+    color: white;
+    padding: 1em;
+  }
+  
+  .footer-links a {
+    color: white;
+    margin: 0 0.5em;
+    text-decoration: none;
+  }
+  

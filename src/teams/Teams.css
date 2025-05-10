@@ -1,0 +1,47 @@
+.dashboard-container {
+    background-color: #20c997;
+    min-height: 100vh;
+    padding: 40px 20px;
+    color: white;
+    font-family: 'Segoe UI', sans-serif;
+    text-align: center;
+  }
+  
+  .dashboard-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+  }
+  
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 20px;
+    justify-content: center;
+    padding: 0 20px;
+  }
+  
+  .team-card {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+  
+  .team-card:hover {
+    transform: scale(1.05);
+  }
+  
+  .team-logo {
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: 10px;
+  }
+  
+  .team-name {
+    font-weight: 600;
+    font-size: 1rem;
+  }
+  
