@@ -7,23 +7,23 @@ function SportsPage() {
     {
       date: 'Sat, May 10, 2025',
       time: '04:28 PM',
-      team1: 'Eagles',
-      team2: 'Bears',
-      location: 'Philadelphia vs Chicago',
+      team1: 'Amaravathi Avengers ',
+      team2: 'Chennai',
+      location: 'Amaravathi ',
     },
     {
       date: 'Sun, May 11, 2025',
       time: '04:28 PM',
-      team1: 'Lions',
-      team2: 'Hawks',
-      location: 'Detroit vs Atlanta',
+      team1: 'Delhi Dynamates',
+      team2: 'Bengaluru Rockets',
+      location: 'Delhi',
     },
     {
       date: 'Fri, May 16, 2025',
       time: '04:28 PM',
-      team1: 'Eagles',
-      team2: 'Hawks',
-      location: 'Philadelphia vs Atlanta',
+      team1: 'Hyderabad Lions',
+      team2: 'Goa Gladiators',
+      location: 'Hyderabad',
     },
   ];
 
@@ -36,9 +36,9 @@ function SportsPage() {
         <nav>
           <Link to="/Teams">Teams</Link>
           <Link to="/Fixtures">Fixtures</Link>
-          <Link to="/Results">Result</Link>
+          <Link to="/Result">Result</Link>
           <Link to="/PointsTable">PointsTable</Link>
-          <Link to="/">Admin</Link>
+          <Link to="/Admin">Admin</Link>
           <Link to="/">Logout</Link>
         </nav>
       </header>
@@ -51,8 +51,8 @@ function SportsPage() {
           <Link to="/Teams">
             <button>View Teams</button>
           </Link>
-          <Link to="/Matches">
-            <button className="secondary">Check Matches</button>
+          <Link to="/Fixtures">
+            <button className="secondary" >Check Matches</button>
           </Link>
         </div>
       </section>
@@ -70,7 +70,7 @@ function SportsPage() {
           <div className="card">
             <h4>📅 Matches</h4>
             <p>Check upcoming fixtures and past results.</p>
-            <Link to="/Matches">Learn more →</Link>
+            <Link to="/Fixtures">Learn more →</Link>
           </div>
           <div className="card">
             <h4>📊 Standings</h4>
@@ -93,7 +93,7 @@ function SportsPage() {
             </div>
           ))}
         </div>
-        <Link to="/Matches">
+        <Link to="/Fixtures">
           <button className="view-all">View All Matches</button>
         </Link>
       </section>

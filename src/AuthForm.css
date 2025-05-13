@@ -7,7 +7,8 @@
   /* LEFT SIDE */
   .auth-left {
     flex: 1;
-    background: linear-gradient(135deg, #20c997, #0fb487);
+    /*background: linear-gradient(135deg, #20c997, #0fb487);*/
+    background-image: url('images/background.jpg');
     color: white;
     display: flex;
     flex-direction: column;

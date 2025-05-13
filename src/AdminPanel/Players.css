@@ -1,0 +1,65 @@
+.player-container {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 30px;
+  background: linear-gradient(to right, #1dd1a1, #10ac84);
+  border-radius: 20px;
+  color: #fff;
+  font-family: 'Segoe UI', sans-serif;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 25px;
+  font-weight: bold;
+}
+
+.form-section {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+}
+
+select,
+input {
+  padding: 12px;
+  width: 80%;
+  max-width: 400px;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+}
+
+button {
+  padding: 10px 25px;
+  background-color: #2e86de;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #1e6ab9;
+}
+
+.player-list {
+  margin-top: 30px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 12px;
+  backdrop-filter: blur(5px);
+}
+
+.player-list ul {
+  padding-left: 20px;
+}
+
+.player-list li {
+  margin-bottom: 6px;
+}

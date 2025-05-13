@@ -1,104 +1,93 @@
 import React, { useState } from 'react';
-import './Teams.css';
+import './Fixtures.css';
 
 const teams = [
-  { name: 'Amaravathi Avengers', logo: 'logo.png' },
-  { name: 'Chennai Champions', logo: 'kkr.png' },
-  { name: 'Bengaluru Rockets', logo: 'kxp.png' },
-  { name: 'Kerala Kings', logo: 'csk.png' },
-  { name: 'Mumbai Titans', logo: 'rr.png' },
-  { name: 'Hyderabad lions', logo: 'mi.png' },
-  { name: 'Goa Gladiators', logo: 'srh.png' },
-  { name: 'Surat Gangsters', logo: 'dc.png' },
-  { name: 'Lucknow Devils', logo: 'lsg.png' },
-  { name: 'Jaipur Panthers', logo: 'gt.png' },
-  { name: 'Kolkata Tigers', logo: 'a.png' },
-  { name: 'Bihar Viamls', logo: 'b.png' },
-  { name: 'Haryana Steelers', logo: 'c.png' },
-  { name: 'Rajastan Royals', logo: 'd.png' },
-  { name: 'Chattisgarh Warriors', logo: 'e.png' },
-  { name: 'Pune Prowlers', logo: 'f.png' },
-  { name: 'Madhya Pradesh Mavericks', logo: 'g.png' },
-  { name: 'Vizag Vikings', logo: 'h.png' },
-  { name: 'Bhopal Blasters', logo: 'i.png' },
-  { name: 'Jammu Express', logo: 'j.png' },
+  { name: 'Amaravathi Avengers', logo: 'Andhra.png' },
+  { name: 'Chennai Champions', logo: 'Chennai.png' },
+  { name: 'Bengaluru Rockets', logo: 'Bengaluru.png' },
+  { name: 'Kerala Kings', logo: 'Kerala.png' },
+  { name: 'Mumbai Titans', logo: 'Mumbai.png' },
+  { name: 'Hyderabad lions', logo: 'Hyderabad.png' },
+  { name: 'Goa Gladiators', logo: 'Goa.png' },
+  { name: 'Surat Gangsters', logo: 'Surat.png' },
+  { name: 'Lucknow Devils', logo: 'Lucknow.png' },
+  { name: 'Delhi Dynamates', logo: 'Delhi.png' },
+  { name: 'Kolkata Tigers', logo: 'Kolkata.png' },
+  { name: 'Bihar Viamls', logo: 'Bihar.png' },
+  { name: 'Haryana Steelers', logo: 'Haryana.png' },
+  { name: 'Rajastan Royals', logo: 'Rajasthan.png' },
+  { name: 'Chattisgarh Warriors', logo: 'Chattisgrah.png' },
+  { name: 'Pune Prowlers', logo: 'Pune.png' },
+  { name: 'Madhya Pradesh Mavericks', logo: 'Madhya.png' },
+  { name: 'Vizag Vikings', logo: 'vizag.png' },
+  { name: 'Bhopal Blasters', logo: 'Bhopal.png' },
+  { name: 'Jammu Express', logo: 'Jammu.png' },
 ];
+const getLogo = (teamName) => {
+  const team = teams.find(t => t.name === teamName);
+  return team ? team.logo : '';
+};
+
+const getRandomDate = (start, end) => {
+  const date = new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
+  return date.toISOString().split('T')[0];
+};
+
+const getRandomTime = () => {
+  const hour = Math.floor(Math.random() * 12) + 1;
+  const minute = Math.floor(Math.random() * 60);
+  const period = Math.random() > 0.5 ? 'AM' : 'PM';
+  return `${hour.toString().padStart(2, '0')}:${minute.toString().padStart(2, '0')} ${period}`;
+};
+
+const generateRandomMatches = (teams, count) => {
+  const matches = new Set();
+  const results = [];
+
+  while (results.length < count) {
+    const team1 = teams[Math.floor(Math.random() * teams.length)].name;
+    let team2 = team1;
+    while (team2 === team1) {
+      team2 = teams[Math.floor(Math.random() * teams.length)].name;
+    }
+
+    const matchKey = [team1, team2].sort().join('-');
+    if (!matches.has(matchKey)) {
+      matches.add(matchKey);
+      results.push({
+        teams: [team1, team2],
+        date: getRandomDate(new Date(), new Date(2025, 11, 31)),
+        time: getRandomTime(),
+      });
+    }
+  }
+
+  return results;
+};
 
 const Fixtures = () => {
-  const [matchSchedule, setMatchSchedule] = useState([]);
-  const [team1, setTeam1] = useState('');
-  const [team2, setTeam2] = useState('');
-  const [date, setDate] = useState('');
-  const [time, setTime] = useState('');
-
-  // Function to schedule a match
-  const scheduleMatch = () => {
-    if (team1 !== team2 && date && time) {
-      const match = {
-        teams: [team1, team2],
-        date,
-        time,
-      };
-      setMatchSchedule([...matchSchedule, match]);
-      // Clear fields after scheduling
-      setTeam1('');
-      setTeam2('');
-      setDate('');
-      setTime('');
-    } else {
-      alert('Please select two different teams and provide valid date and time.');
-    }
-  };
+  const [matches] = useState(generateRandomMatches(teams, 30));
 
   return (
     <div className="dashboard-container">
-      <h1 className="dashboard-title">🏏 Schedule Matches</h1>
-      
-      <div className="match-scheduler">
-        <select value={team1} onChange={(e) => setTeam1(e.target.value)}>
-          <option value="">Select Team 1</option>
-          {teams.map((team, index) => (
-            <option key={index} value={team.name}>
-              {team.name}
-            </option>
-          ))}
-        </select>
-
-        <select value={team2} onChange={(e) => setTeam2(e.target.value)}>
-          <option value="">Select Team 2</option>
-          {teams.map((team, index) => (
-            <option key={index} value={team.name}>
-              {team.name}
-            </option>
-          ))}
-        </select>
-
-        <input
-          type="date"
-          value={date}
-          onChange={(e) => setDate(e.target.value)}
-        />
-        <input
-          type="time"
-          value={time}
-          onChange={(e) => setTime(e.target.value)}
-        />
-        <button onClick={scheduleMatch}>Schedule Match</button>
-      </div>
-
+      <h1 className="dashboard-title">🏏 Upcoming Matches</h1>
       <div className="match-list">
-        <h2>Scheduled Matches:</h2>
-        {matchSchedule.length === 0 ? (
-          <p>No matches scheduled yet.</p>
-        ) : (
-          <ul>
-            {matchSchedule.map((match, index) => (
-              <li key={index}>
-                {match.teams[0]} vs {match.teams[1]} - {match.date} at {match.time}
-              </li>
-            ))}
-          </ul>
-        )}
+        <ul>
+          {matches.map((match, index) => (
+            <li key={index} className="match-item">
+              <span className="team">
+                <img src={`./images/${getLogo(match.teams[0])}`} alt={match.teams[0]} className="team-logo" />
+                <strong>{match.teams[0]}</strong>
+              </span>
+              &nbsp;vs&nbsp;
+              <span className="team">
+                <img src={`./images/${getLogo(match.teams[1])}`} alt={match.teams[1]} className="team-logo" />
+                <strong>{match.teams[1]}</strong>
+              </span>
+              &nbsp;— {match.date} at {match.time}
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );
